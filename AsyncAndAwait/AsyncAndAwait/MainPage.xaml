@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="AsyncAndAwait.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AsyncAndAwait"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="pageTitle" Margin="120,0,0,20" Text="Order System" Style="{StaticResource PageHeaderTextStyle}" IsHitTestVisible="false"/>
+        <StackPanel Grid.Row="1" Margin="120,50,0,0">
+            <TextBlock x:Name="Information" />
+            <ProgressBar x:Name="OrderLoadingProgress" HorizontalAlignment="Left" Foreground="White" Visibility="Collapsed" IsIndeterminate="True" Width="100">
+                <ProgressBar.RenderTransform>
+                    <CompositeTransform ScaleX="5" ScaleY="5" />
+                </ProgressBar.RenderTransform>
+            </ProgressBar>
+            <ListView x:Name="Orders" DisplayMemberPath="OrderNumber" />
+        </StackPanel>
+        <AppBar VerticalAlignment="Bottom" Grid.Row="1">
+            <Button Content="Load orders" x:Name="LoadOrders" Click="LoadOrders_Click" />
+        </AppBar>
+    </Grid>
+</Page>
